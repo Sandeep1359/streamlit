@@ -7,9 +7,11 @@ import time
 import base64
 
 # -------------------- CONFIGURATION --------------------
-OPENROUTER_API_KEY = "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"
+OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
+
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
-GITHUB_TOKEN = "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"
+OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
+
 
 # Repository configuration - you can change these
 GITHUB_USERNAME = "Sandeep1359"  # Replace with your GitHub username
