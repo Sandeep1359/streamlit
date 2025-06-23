@@ -14,6 +14,10 @@ GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 
 
 
+st.write("OpenRouter Key Loaded:", "OPENROUTER_API_KEY" in st.secrets)
+st.write("GitHub Token Loaded:", "GITHUB_TOKEN" in st.secrets)
+
+
 # Repository configuration - you can change these
 GITHUB_USERNAME = "Sandeep1359"  # Replace with your GitHub username
 REPO_NAME = "notebook-analyzer"  # Repository name for storing temporary files
