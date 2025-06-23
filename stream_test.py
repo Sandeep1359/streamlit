@@ -225,7 +225,7 @@ Provide specific, actionable feedback only."""
 def create_analysis_prompt_direct(notebook_content):
     """Fallback: Create analysis prompt with direct content"""
     # Truncate content if too long to avoid token limits
-    max_content_length = 6000
+    max_content_length = 8000
     if len(notebook_content) > max_content_length:
         notebook_content = notebook_content[:max_content_length] + "\n\n[CONTENT TRUNCATED DUE TO LENGTH]"
     
@@ -253,7 +253,7 @@ NOTEBOOK CONTENT:
 - If the code is minimal, still suggest at least two improvements and two knowledge points.
 
 GRADING CRITERIA:
-A: Excellent, B: Good, C: Average, D: Below average, E: Poor.
+A: Excellent, B: Good, C: Average, D: Below average, E: Poor. use less than 4500 tokens.
 """
     return prompt
 
