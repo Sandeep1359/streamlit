@@ -14,8 +14,6 @@ GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 
 
 
-st.write("OpenRouter Key Loaded:", "OPENROUTER_API_KEY" in st.secrets)
-st.write("GitHub Token Loaded:", "GITHUB_TOKEN" in st.secrets)
 
 
 # Repository configuration - you can change these
@@ -355,12 +353,12 @@ if uploaded_file:
         if notebook_content.startswith("Error:"):
             st.error("Failed to extract notebook content. Please check your file.")
         else:
-            st.info(f"📊 Extracted content length: {len(notebook_content)} characters")
+            # st.info(f"📊 Extracted content length: {len(notebook_content)} characters")
             
             with st.spinner("Analyzing your notebook with AI..."):
                 # Try GitHub repository method first if token is configured
                 if GITHUB_TOKEN and GITHUB_TOKEN != "your_github_token_here" and GITHUB_USERNAME != "your-username":
-                    st.info("📤 Creating temporary file in GitHub repository...")
+                    # st.info("📤 Creating temporary file in GitHub repository...")
                     
                     filename = uploaded_file.name.replace('.ipynb', '') if uploaded_file.name.endswith('.ipynb') else 'notebook'
                     file_result = create_file_in_repo(notebook_content, filename)
@@ -369,9 +367,9 @@ if uploaded_file:
                         file_info = file_result
                         raw_url = file_result['raw_url']
                         
-                        st.success(f"📁 File created: **{file_result['filename']}**")
-                        st.info(f"🔗 Raw URL: {raw_url}")
-                        st.info("🤖 Sending to AI for analysis...")
+                        # st.success(f"📁 File created: **{file_result['filename']}**")
+                        # st.info(f"🔗 Raw URL: {raw_url}")
+                        st.info("🤖 Sending for analysis...")
                         
                         # Small delay to ensure file is available
                         time.sleep(2)
@@ -427,10 +425,10 @@ if uploaded_file:
             try:
                 time.sleep(2)  # Ensure AI has processed the file
                 delete_success = delete_file_from_repo(file_info['filename'], file_info['sha'])
-                if delete_success:
-                    st.success(f"🗑️ Cleaned up temporary file: **{file_info['filename']}**")
-                else:
-                    st.warning(f"⚠️ Could not clean up file: **{file_info['filename']}** (you may need to delete it manually)")
+                # if delete_success:
+                #     st.success(f"🗑️ Cleaned up temporary file: **{file_info['filename']}**")
+                # else:
+                #     st.warning(f"⚠️ Could not clean up file: **{file_info['filename']}** (you may need to delete it manually)")
             except Exception as cleanup_error:
                 st.warning(f"Error during cleanup: {cleanup_error}")
 
