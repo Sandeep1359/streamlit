@@ -10,7 +10,8 @@ import base64
 OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
 
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
-OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
+GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
+
 
 
 # Repository configuration - you can change these
